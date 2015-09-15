@@ -152,7 +152,8 @@ class YFinanceFetcher:
   # - attr: a list of attributes to get as described in the file 'yfinanceoptions.txt'
   def getStock (self, symbols, attr):
     query = yfinancequery.YFinanceQuery ()
-    url = query.queryStock (attr, symbols)
+    url = query.queryStock (symbols, attr)#attr, symbols)
     urldata = urllib2.urlopen (url)
+    #print url
     return list(csv.reader (urldata.read().splitlines()))
 
